@@ -1,0 +1,57 @@
+@backend_HostAddress = https://localhost:7061
+
+@trackingNumber=1
+
+GET {{backend_HostAddress}}/api/packages
+
+###
+
+GET {{backend_HostAddress}}/api/packages/{{trackingNumber}}
+Cache-Control: no-cache
+
+###
+
+//Accepted to Sent - shouldn't work
+PATCH {{backend_HostAddress}}/api/packages/2
+Content-Type: application/json
+
+{
+  "newStatus": "Sent"
+}
+###
+
+//Created to Sent - should work
+PATCH {{backend_HostAddress}}/api/packages/1
+Content-Type: application/json
+
+{
+  "newStatus": "Sent"
+}
+###
+
+PATCH {{backend_HostAddress}}/api/packages/{{trackingNumber}}
+Content-Type: application/json
+
+{
+  "newStatus": "Returned"
+}
+###
+
+POST {{backend_HostAddress}}/api/packages
+Content-Type: application/json
+
+{
+  "name": "MacBook Test",
+  "sender": {
+    "name": "Apple",
+    "address": "Cupertino, USA",
+    "phone": "+1 123456"
+  },
+  "recipient": {
+    "name": "Tester",
+    "address": "Vilnius, LT",
+    "phone": "+370 654321"
+  }
+}
+
+###

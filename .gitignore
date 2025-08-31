@@ -1,0 +1,48 @@
+# ---- .NET / Visual Studio ----
+bin/
+obj/
+out/
+*.user
+*.rsuser
+*.suo
+*.cache
+*.log
+*.vs/
+*.vscode/
+TestResults/
+*.coverage
+*.coveragexml
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+# Local config files
+appsettings.Development.json
+
+# ---- Node / Vite (frontend) ----
+node_modules/
+dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.pnp
+.pnp.js
+
+# ---- OS junk ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Env files ----
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
